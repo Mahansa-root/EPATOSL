@@ -1,0 +1,642 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+#katagori{
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+}
+
+
+.product-grid {
+    display: grid;
+ 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+ 
+    padding-top: 100%; 
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.product-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #34495e;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.7rem; 
+}
+
+.product-details {
+    margin-top: auto; 
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f39c12;
+    margin-top: 10px;
+}
+
+.original-price {
+    font-size: 0.8rem;
+    color: #95a5a6;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 8px;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    color: #f1c40f;
+}
+
+.product-rating .star {
+    font-size: 1.1rem;
+}
+
+.product-location {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+a.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3498db;
+    text-decoration: none;
+}
+
+#main-nav .login-btn, #main-nav .logout-btn {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+#main-nav .login-btn:hover, #main-nav .logout-btn:hover {
+    background-color: #2980b9;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.user-profile span {
+    font-weight: 600;
+}
+
+/* === CSS untuk Modal Login === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+.modal-content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #e74c3c;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
+.han {
+    background-color: #2980b9;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    align-items: center; 
+}
+
+.konten-kiri {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px 0 100px;
+}
+
+.div1 h1 {
+    color: whitesmoke;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.div3 p {
+    color: whitesmoke;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.div4 button {
+    background-color: white;
+    color: #2980b9;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.div4 button:hover {
+    background-color: #f1f1f1;
+}
+
+.div2 { 
+    height: 100%;
+    overflow: hidden;
+}
+
+.div2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+@media (max-width: 900px) {
+    .han {
+        grid-template-columns: 1fr; 
+        height: auto; 
+    }
+
+    .konten-kiri {
+        padding: 50px 30px; 
+        text-align: center; 
+    }
+
+    .div1 h1 {
+        font-size: 36px;
+    }
+
+    .div3 p {
+        max-width: none;
+    }
+
+    .div4 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .div2 {
+        height: 350px; 
+        max-height: 50vh;
+    }
+}
+
+/* ... (CSS Anda yang sudah ada) ... */
+
+/* === CSS untuk Ikon Keranjang === */
+.nav-cart {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cart-icon {
+    font-size: 1.8rem; /* Ukuran ikon keranjang */
+    color: #555;
+}
+
+.cart-count {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid white;
+}
+
+/* === CSS untuk Modal Keranjang === */
+.cart-modal-content {
+    max-width: 600px; /* Lebih lebar dari modal login */
+}
+
+#cart-items-container {
+    margin-top: 20px;
+    max-height: 40vh; /* Batasi tinggi dan beri scroll */
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    color: #34495e;
+    font-size: 0.85rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.remove-from-cart-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+/* ... (CSS Anda yang sudah ada) ... */
+
+/* === CSS untuk Modal Metode Pembayaran === */
+.payment-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.payment-option {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+    border-color: #3498db;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.payment-option img {
+    height: 40px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.payment-option span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.payment-option.cod-soon {
+    cursor: not-allowed;
+    background-color: #f8f8f8;
+    opacity: 0.6;
+}
+.payment-option.cod-soon:hover {
+    border-color: #ddd;
+    box-shadow: none;
+    transform: none;
+}
+.sub-kategori-wrapper {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.sub-kategori-wrapper h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.sub-kategori-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sub-kategori-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 120px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sub-kategori-card i {
+    font-size: 28px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.sub-kategori-card p {
+    margin: 0;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.sub-kategori-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
+#pilihan{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#pilihan > i{
+   background-color: #50a6fc;
+    width: 60px;
+    height: 60px;          
+    margin: 8px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;     
+    display: inline-flex;   
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    font-size: 0.95rem;
+}
+
+.footer1 h2,
+.footer2 h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #50a6fc;
+}
+
+.footer1 p {
+    margin-bottom: 10px;
+}
+
+.footer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer2-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.footer2-icons i {
+    background-color: #50a6fc;
+    color: white;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.footer2-icons i:hover {
+    background-color: #3277c8;
+}
+
+.footerFloor {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
